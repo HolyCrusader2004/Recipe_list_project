@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1c5fa7;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #155a8a;
+        }
+        h1, h2, h3, h4 {
+            color: #1c5fa7;
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        h6 {
+            margin-bottom: 20px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'Recipes' %}">Back</a>
+        <h1>Recipe: {{ recipe.title }} </h1>
+        <h2>Description</h2>
+        <p>{{ recipe.description|safe }}</p>
+        <h3>Comments</h3>
+        <p>{{ recipe.comments }}</p>
+        <h4>Time Needed</h4>
+        <p>{{ recipe.time_needed }} minutes</p>
+        <h4>Created at:</h4>
+        <p>{{ recipe.created_at }}</p>
+        <h4>Image:</h4>
+        <h6><img src= "{{recipe.picture_url}}" alt="External Image" width="300" height="200"></h6>
+    </div>
+</body>
+</html>
